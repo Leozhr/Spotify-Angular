@@ -8,6 +8,7 @@ export function SpotifyProfile(
     id: user.id,
     name: user.display_name,
     imgProfile: user.images.pop().url,
+    type: user.type,
   };
 }
 
