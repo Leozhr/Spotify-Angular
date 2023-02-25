@@ -1,0 +1,70 @@
+@import "variables.scss";
+
+:host {
+  .base {
+    padding: 0px 60px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .musics-list {
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  .musics-itens {
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      transition: 0.2s;
+      background: linear-gradient(to left, transparent, $cor-b75, transparent);
+    }
+  }
+
+  .musics ul, .name{
+    flex-direction: column;
+  }
+
+  .select {
+    align-items: center;
+    gap: 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    img {
+      max-width: 60px;
+      border-radius: 15px;
+    }
+
+    img:nth-child(1){
+      width: 25px;
+    }
+
+    span {
+      opacity: 0.9;
+    }
+  }
+
+  .time {
+    gap: 5px;
+    font-size: 0.85rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  opacity: 0.7;
+  }
+}

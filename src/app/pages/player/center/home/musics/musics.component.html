@@ -1,0 +1,27 @@
+<div class="base flex">
+  <h1>Músicas Curtidas</h1>
+
+  <div class="musics">
+    <ul class="flex">
+      <li *ngFor="let music of musics" class="flex musics-itens" (click)="PlayMusic(music)">
+        <div class="flex musics-list">
+          <div class="flex select">
+            <img src="assets/images/icons/play.svg" alt="">
+            <img src="{{ music.album.imageUrl }}" alt="">
+          </div>
+
+          <div class="flex name">
+            <h2>{{ music.title }}</h2>
+            <span>{{ music.singer[0].name }}</span>
+          </div>
+        </div>
+
+        <div class="time flex">
+          <img src="assets/images/icons/clock.svg" alt="">
+          <h2>{{ music.time }}</h2>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</div>

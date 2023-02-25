@@ -4,9 +4,16 @@ import { PlayerComponent } from './player.component';
 import { PlayerRoutingModule } from './player.routes';
 import { LeftModule } from './left/left.module';
 import { RightModule } from './right/right.module';
+import { HomeModule } from './center/home/home.module';
 
 @NgModule({
   declarations: [PlayerComponent],
-  imports: [CommonModule, PlayerRoutingModule, LeftModule, RightModule],
+  imports: [
+    CommonModule,
+    PlayerRoutingModule,
+    LeftModule,
+    RightModule,
+    HomeModule,
+  ],
 })
 export class PlayerModule {}

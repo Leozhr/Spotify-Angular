@@ -7,10 +7,24 @@
   .left, .right {
     background-color: $cor-b75;
     height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
   .center {
     background-color: $cor-b100;
     height: 100vh;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 8px;               /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(34, 34, 34);        /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(58, 58, 58);    /* color of the scroll thumb */      /* roundness of the scroll thumb */ /* creates padding around scroll thumb */
+    }
   }
 }

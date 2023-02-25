@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/player' },
+  { path: '', pathMatch: 'full', redirectTo: 'player' },
 
   {
     path: 'login',
@@ -16,6 +16,7 @@ const routes: Routes = [
       import('./pages/player/player.module').then((m) => m.PlayerModule),
     canLoad: [AuthenticatedGuard],
   },
+  { path: '**', pathMatch: 'full', redirectTo: 'player/home' },
 ];
 
 @NgModule({

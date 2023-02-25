@@ -2,8 +2,15 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { User } from '../interfaces/user';
-import { GetSpotifyPlaylist, SpotifyProfile } from '../common/spotifyHelper';
+import {
+  GetSpotifyPlaylist,
+  GetSpotifySinger,
+  GetSpotifyTrack,
+  SpotifyProfile,
+} from '../common/spotifyHelper';
 import { Playlist } from '../interfaces/playlist';
+import { Singer } from '../interfaces/singer';
+import { Music } from '../interfaces/musics';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +50,22 @@ export class SpotifyService {
       limit,
     });
     return playlists.items.map(GetSpotifyPlaylist);
+  }
+
+  async SpotifyTopSinger(limit = 10): Promise<Singer[]> {
+    const singer = await this.spotifyApi.getMyTopArtists({ limit });
+    return singer.items.map(GetSpotifySinger);
+  }
+
+  async SpotifyMusics(offset = 0, limit = 20): Promise<Music[]> {
+    const musics = await this.spotifyApi.getMySavedTracks({ offset, limit });
+    console.log(musics);
+    return musics.items.map((x) => GetSpotifyTrack(x.track));
+  }
+
+  async SpotifyPlay(MusicID: string) {
+    await this.spotifyApi.queue(MusicID);
+    await this.spotifyApi.skipToNext();
   }
 
   UrlToken() {
