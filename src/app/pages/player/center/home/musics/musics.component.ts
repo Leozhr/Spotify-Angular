@@ -23,6 +23,7 @@ export class MusicsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.GetFavoriteMusics();
+    this.MusicPlayer();
   }
 
   async GetFavoriteMusics() {
@@ -31,6 +32,7 @@ export class MusicsComponent implements OnInit, OnDestroy {
 
   async PlayMusic(music: Music) {
     await this.spotifyService.SpotifyPlay(music.id);
+    this.playerService.GetMusicValid(music);
   }
 
   MusicPlayer() {

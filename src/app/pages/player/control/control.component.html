@@ -1,0 +1,27 @@
+<div class="menu grid">
+
+  <div class="bar"></div>
+
+  <div class="menu-info flex">
+    <picture>
+      <img src="{{ music.album.imageUrl }}" alt="">
+    </picture>
+
+    <div class="flex name">
+      <h2>{{ music.title }}</h2>
+      <span>{{ music.singer[0]?.name }}</span>
+    </div>
+
+  </div>
+
+  <div class="menu-player flex flex-center">
+    <img src="assets/images/icons/next.svg" alt="" class="preview" (click)="ReturnMusic()">
+    <img src="assets/images/icons/player.svg" alt="" class="play" (click)="MusicControl()">
+    <img src="assets/images/icons/next.svg" alt="" class="next" (click)="NextMusic()">
+  </div>
+
+  <div class="menu-timer">
+    <span>00:00/{{ music.time }}</span>
+  </div>
+
+</div>

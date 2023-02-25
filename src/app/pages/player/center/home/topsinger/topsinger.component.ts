@@ -18,7 +18,7 @@ export class TopsingerComponent implements OnInit {
   }
 
   async GetSinger() {
-    const TopSinger = await this.spotifyService.SpotifyTopSinger(6);
+    const TopSinger = await this.spotifyService.SpotifyTopSinger(15);
 
     if (!!TopSinger) this.singer = TopSinger.pop();
   }

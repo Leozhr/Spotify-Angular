@@ -3,7 +3,8 @@
 
   <div class="musics">
     <ul class="flex">
-      <li *ngFor="let music of musics" class="flex musics-itens" (click)="PlayMusic(music)">
+      <li *ngFor="let music of musics" class="flex musics-itens" (click)="PlayMusic(music)"
+        [ngClass]="{'played': music.id == musicActive.id}">
         <div class="flex musics-list">
           <div class="flex select">
             <img src="assets/images/icons/play.svg" alt="">

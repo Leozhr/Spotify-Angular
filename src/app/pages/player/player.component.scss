@@ -27,4 +27,13 @@
       background-color: rgb(58, 58, 58);    /* color of the scroll thumb */      /* roundness of the scroll thumb */ /* creates padding around scroll thumb */
     }
   }
+
+  .control {
+    width: 100vw;
+    height: 90px;
+    position: fixed;
+    bottom: 0px;
+    background: rgba(18, 18, 18, 0.64);
+    backdrop-filter: blur(40px);
+  }
 }

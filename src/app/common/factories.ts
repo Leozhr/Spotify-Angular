@@ -20,6 +20,7 @@ export function newMusic(): Music {
     },
     singer: [],
     time: '',
+    timeMs: 0,
     title: '',
   };
 }

@@ -68,6 +68,27 @@ export class SpotifyService {
     await this.spotifyApi.skipToNext();
   }
 
+  async SpotifyNext() {
+    await this.spotifyApi.skipToNext();
+  }
+
+  async SpotifyReturn() {
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async SpotifyPause() {
+    await this.spotifyApi.pause();
+  }
+
+  async SpotifyStart() {
+    await this.spotifyApi.play();
+  }
+
+  async SpotifyState(): Promise<Music> {
+    const music = await this.spotifyApi.getMyCurrentPlayingTrack();
+    return GetSpotifyTrack(music.item);
+  }
+
   UrlToken() {
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`;

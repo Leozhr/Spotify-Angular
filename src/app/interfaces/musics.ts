@@ -11,4 +11,5 @@ export interface Music {
     imageUrl: string;
   };
   time: string;
+  timeMs: number;
 }

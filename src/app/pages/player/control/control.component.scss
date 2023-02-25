@@ -1,0 +1,57 @@
+@import "variables.scss";
+
+.menu {
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  height: max-content;
+  position: relative;
+
+  &-info {
+    margin-top: 12px;
+    align-items: center;
+    padding: 0px 32px;
+    gap: 10px;
+
+    img {
+      max-width: 60px;
+      border-radius: 15px;
+    }
+
+    & .name {
+      flex-direction: column;
+      font-size: 1rem;
+    }
+
+    & .name h2{
+      font-size: 1.25rem;
+    }
+  }
+
+  &-player {
+    gap: 15px;
+    margin-top: 12px;
+
+    & img {
+      cursor: pointer;
+    }
+
+    & .preview {
+      rotate: 180deg;
+    }
+  }
+
+  &-timer {
+    margin-top: 12px;
+    text-align: end;
+    padding: 0px 30px;
+  }
+
+  .bar {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: #FFFFFF25;
+  }
+}

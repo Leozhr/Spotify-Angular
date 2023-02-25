@@ -3,6 +3,7 @@ import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 import { User } from '../interfaces/user';
 import { addMilliseconds, format } from 'date-fns';
+import { newMusic } from './factories';
 
 export function SpotifyProfile(
   user: SpotifyApi.CurrentUsersProfileResponse
@@ -37,6 +38,8 @@ export function GetSpotifySinger(singer: SpotifyApi.ArtistObjectFull): Singer {
 export function GetSpotifyTrack(
   spotifyTrack: SpotifyApi.TrackObjectFull
 ): Music {
+  if (!spotifyTrack) return newMusic();
+
   const convertTime = (ms: number) => {
     const date = addMilliseconds(new Date(0), ms);
     return format(date, 'mm:ss');
@@ -55,5 +58,6 @@ export function GetSpotifyTrack(
       name: artista.name,
     })),
     time: convertTime(spotifyTrack.duration_ms),
+    timeMs: spotifyTrack.duration_ms,
   };
 }
