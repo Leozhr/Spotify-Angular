@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 @import 'variables.scss';
 
 html, body {
-  margin: 0;
-  padding: 0;
   background-color: $cor-fundo;
+  color: $cor-w;
 }
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope';
   box-sizing: border-box;
+}
+
+li, a {
+  list-style: none;
+  text-decoration: none;
 }
 
 .flex {

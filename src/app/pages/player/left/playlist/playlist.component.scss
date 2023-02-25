@@ -1,0 +1,42 @@
+@import "variables.scss";
+
+:host {
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    padding: 0px 30px 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+
+    li {
+      padding: 12px 0px;
+      opacity: 0.7;
+      gap: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background: linear-gradient(to right, $cor-b25, transparent);
+      }
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      max-width: 270px;
+    }
+
+    img {
+      margin-left: 30px;
+    }
+  }
+
+
+}
