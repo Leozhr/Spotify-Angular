@@ -13,7 +13,7 @@ export class RecentlyComponent implements OnInit {
   singer: Singer[];
   test = new Device();
 
-  constructor(private spotifyService: SpotifyService, private router: Router) {}
+  constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
     this.GetSinger();

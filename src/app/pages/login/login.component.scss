@@ -26,6 +26,13 @@
       border: 5px solid $cor-b75;
       box-shadow: 0px 0px 1px 2px $cor-principal;
       cursor: pointer;
+      animation: event 4s infinite;
+    }
+
+    @keyframes event {
+      0% { box-shadow: 0px 0px 1px 2px $cor-principal; }
+      50% { box-shadow: 0px 0px 1px 4px $cor-principal; }
+      100% { box-shadow: 0px 0px 1px 2px $cor-principal; }
     }
   }
 }

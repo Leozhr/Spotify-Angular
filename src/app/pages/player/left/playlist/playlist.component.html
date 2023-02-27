@@ -1,12 +1,13 @@
 <h3>Playlist</h3>
 
-<ul>
-  <nav class="playlist">
+
+<nav class="playlist">
+  <ul>
     <li class="flex" *ngFor="let playlist of playlists" (click)="GetPlaylistPage(playlist.id)">
       <img src="assets/images/nav/playlist.svg" alt="">
       <div class="title">
         <h2>{{ playlist.name | titlecase }}</h2>
       </div>
     </li>
-  </nav>
-</ul>
+  </ul>
+</nav>
