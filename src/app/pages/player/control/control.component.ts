@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { newMusic } from 'src/app/common/factories';
-import { porcentage } from 'src/app/common/porcentage';
 import { Music } from 'src/app/interfaces/musics';
 import { PlayerService } from 'src/app/services/player.service';
 
@@ -14,24 +13,11 @@ export class ControlComponent implements OnInit, OnDestroy {
   music: Music = newMusic();
   subs: Subscription[] = [];
   status: boolean = false;
-  timer: any;
-  convert = new porcentage();
-  bar: number = 0;
 
   constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
     this.GetMusicPlayed();
-    this.BarProgress();
-  }
-
-  BarProgress() {
-    let counter = 0;
-    this.timer = setInterval(() => {
-      counter += 1000;
-      this.bar = this.convert.result(counter, this.music.timeMs);
-      console.log(this.bar);
-    }, 500);
   }
 
   GetMusicPlayed() {
@@ -44,14 +30,10 @@ export class ControlComponent implements OnInit, OnDestroy {
 
   NextMusic() {
     this.playerService.SetNextMusic();
-    clearInterval(this.timer);
-    this.BarProgress();
   }
 
   ReturnMusic() {
     this.playerService.SetReturnMusic();
-    clearInterval(this.timer);
-    this.BarProgress();
   }
 
   MusicControl() {

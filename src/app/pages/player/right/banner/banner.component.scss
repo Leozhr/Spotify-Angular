@@ -1,0 +1,21 @@
+.artist {
+  position: relative;
+
+  & img {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    opacity: 0.7;
+  }
+
+  &-info {
+    position: absolute;
+    height: 50px;
+    bottom: 30px;
+    left: 80px;
+    text-shadow: 1px 1px 3px black;
+  }
+}
+
+

@@ -1,10 +1,20 @@
+<div class="banner">
+  <picture class="flex flex-center">
+    <img src="{{ playlist?.image }}" alt="">
+  </picture>
+
+  <div class="text flex">
+    <h1>{{ playlist?.name }}</h1>
+  </div>
+</div>
+
 <div class="base flex">
-  <h1>Músicas Curtidas</h1>
+  <h1>PlayList</h1>
 
   <div class="musics">
     <ul class="flex">
-      <li *ngFor="let music of musics" class="flex musics-itens" (click)="PlayMusic(music)"
-        [ngClass]="{'played': music.id == musicActive.id}">
+      <li *ngFor="let music of playlist?.musics" class="flex musics-itens" (click)="PlayMusic(music)"
+        [ngClass]="{'played': music.id == musicPlayer.id}">
         <div class="flex musics-list">
           <div class="flex select">
             <img src="assets/images/icons/play.svg" alt="" class="play">

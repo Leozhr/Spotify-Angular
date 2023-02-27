@@ -9,7 +9,7 @@
 
   .musics-list {
     align-items: center;
-    gap: 20px;
+    gap: 8px;
 
     h2 {
       font-size: 1.25rem;
@@ -19,7 +19,7 @@
   .musics-itens {
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 7px 0px;
     gap: 20px;
     cursor: pointer;
     transition: 0.2s;
@@ -32,7 +32,11 @@
 
     &.played {
       h2:nth-child(1) {
-      color: $cor-principal;
+        color: $cor-principal;
+
+      & .play {
+        display: none;
+      }
       }
     }
   }
@@ -63,15 +67,23 @@
 
   .time {
     gap: 5px;
-    font-size: 0.85rem;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.75rem;
+    justify-content: space-between;
+
+    & img {
+      max-width: 20px;
+      filter: brightness(55%);
+    }
+  }
+
+  .info {
+    grid-template-columns: 1fr 80px;
   }
 
   h1 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 20px;
-  opacity: 0.7;
+  opacity: 0.6;
   }
 }

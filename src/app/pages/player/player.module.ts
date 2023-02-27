@@ -6,16 +6,10 @@ import { LeftModule } from './left/left.module';
 import { RightModule } from './right/right.module';
 import { HomeModule } from './center/home/home.module';
 import { ControlModule } from './control/control.module';
+import { MusicModule } from './center/music/music.module';
 
 @NgModule({
   declarations: [PlayerComponent],
-  imports: [
-    CommonModule,
-    PlayerRoutingModule,
-    LeftModule,
-    RightModule,
-    HomeModule,
-    ControlModule,
-  ],
+  imports: [CommonModule, PlayerRoutingModule, LeftModule, RightModule, HomeModule, ControlModule, MusicModule],
 })
 export class PlayerModule {}

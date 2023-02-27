@@ -12,11 +12,7 @@ export class AuthenticatedGuard implements CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -31,7 +27,6 @@ export class AuthenticatedGuard implements CanLoad {
   }
 
   NotAuthenticated() {
-    localStorage.clear();
     this.router.navigate(['/login']);
     return false;
   }

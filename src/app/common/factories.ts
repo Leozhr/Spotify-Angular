@@ -1,4 +1,5 @@
 import { Music } from '../interfaces/musics';
+import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 
 export function NewSinger(): Singer {
@@ -7,6 +8,16 @@ export function NewSinger(): Singer {
     name: '',
     imageUrl: '',
     followers: 0,
+    musics: [],
+  };
+}
+
+export function NewPlaylist(): Playlist {
+  return {
+    id: '',
+    name: '',
+    image: '',
+    musics: [],
   };
 }
 

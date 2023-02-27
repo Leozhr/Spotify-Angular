@@ -1,0 +1,116 @@
+@import 'variables.scss';
+
+:host {
+.banner {
+  position: relative;
+}
+
+picture img {
+  width: 90%;
+  height: 300px;
+  display: block;
+  object-fit: cover;
+  filter: brightness(65%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 15px;
+}
+
+.text {
+  flex-direction: column;
+  padding: 0px 60px;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+
+.text h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+}
+
+.base {
+  padding: 0px 60px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.musics-list {
+  align-items: center;
+  gap: 8px;
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.musics-itens {
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0px;
+  gap: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+
+  &:hover {
+    transition: 0.2s;
+    background: linear-gradient(to left, transparent, $cor-b75, transparent);
+  }
+
+  &.played {
+    h2:nth-child(1) {
+      color: $cor-principal;
+
+    & .play {
+      display: none;
+    }
+    }
+  }
+}
+
+.musics ul, .name{
+  flex-direction: column;
+}
+
+.select {
+  align-items: center;
+  gap: 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  img {
+    max-width: 60px;
+    border-radius: 15px;
+  }
+
+  img:nth-child(1){
+    width: 25px;
+  }
+
+  span {
+    opacity: 0.9;
+  }
+}
+
+.time {
+  gap: 5px;
+  font-size: 0.75rem;
+  justify-content: space-between;
+
+  & img {
+    max-width: 20px;
+    filter: brightness(55%);
+  }
+}
+
+.info {
+  grid-template-columns: 1fr 80px;
+}
+
+.base h1 {
+font-size: 2rem;
+font-weight: 600;
+margin-bottom: 20px;
+opacity: 0.6;
+}
+}

@@ -16,10 +16,7 @@ export class MusicsComponent implements OnInit, OnDestroy {
 
   subs: Subscription[] = [];
 
-  constructor(
-    private spotifyService: SpotifyService,
-    private playerService: PlayerService
-  ) {}
+  constructor(private spotifyService: SpotifyService, private playerService: PlayerService) {}
 
   ngOnInit(): void {
     this.GetFavoriteMusics();

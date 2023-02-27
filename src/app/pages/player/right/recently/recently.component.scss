@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+:host {
+  padding: 0px 50px;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: $cor-w;
+  }
+}

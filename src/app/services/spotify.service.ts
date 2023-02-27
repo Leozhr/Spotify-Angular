@@ -4,6 +4,7 @@ import Spotify from 'spotify-web-api-js';
 import { User } from '../interfaces/user';
 import {
   GetSpotifyPlaylist,
+  GetSpotifyPlaylistOnly,
   GetSpotifySinger,
   GetSpotifyTrack,
   SpotifyProfile,
@@ -49,7 +50,24 @@ export class SpotifyService {
       offset,
       limit,
     });
+
     return playlists.items.map(GetSpotifyPlaylist);
+  }
+
+  async SpotifyPlaylistOnly(playlistId: string, offset = 0, limit = 50) {
+    const playlist = await this.spotifyApi.getPlaylist(playlistId);
+
+    if (!playlist) return null;
+
+    const playlistOnly = GetSpotifyPlaylistOnly(playlist);
+    const musics = await this.spotifyApi.getPlaylistTracks(playlistId, {
+      offset,
+      limit,
+    });
+
+    playlistOnly.musics = await musics.items.map((music) => GetSpotifyTrack(music.track as SpotifyApi.TrackObjectFull));
+
+    return playlistOnly;
   }
 
   async SpotifyTopSinger(limit = 10): Promise<Singer[]> {
@@ -59,7 +77,6 @@ export class SpotifyService {
 
   async SpotifyMusics(offset = 0, limit = 20): Promise<Music[]> {
     const musics = await this.spotifyApi.getMySavedTracks({ offset, limit });
-    console.log(musics);
     return musics.items.map((x) => GetSpotifyTrack(x.track));
   }
 

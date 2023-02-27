@@ -3,7 +3,7 @@ import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 import { User } from '../interfaces/user';
 import { addMilliseconds, format } from 'date-fns';
-import { newMusic } from './factories';
+import { newMusic, NewPlaylist } from './factories';
 
 export function SpotifyProfile(
   user: SpotifyApi.CurrentUsersProfileResponse
@@ -26,12 +26,26 @@ export function GetSpotifyPlaylist(
   };
 }
 
+export function GetSpotifyPlaylistOnly(
+  playlist: SpotifyApi.SinglePlaylistResponse
+): Playlist {
+  if (!playlist) return NewPlaylist();
+
+  return {
+    id: playlist.id,
+    name: playlist.name,
+    image: playlist.images.shift().url,
+    musics: [],
+  };
+}
+
 export function GetSpotifySinger(singer: SpotifyApi.ArtistObjectFull): Singer {
   return {
     id: singer.id,
     name: singer.name,
     imageUrl: singer.images.sort((a, b) => a.width - b.width).pop().url,
     followers: singer.followers.total,
+    musics: [],
   };
 }
 
