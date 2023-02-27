@@ -23,6 +23,7 @@ export class DeviceGuard implements CanLoad {
   }
 
   NotCompatible() {
+    localStorage.clear();
     this.router.navigate(['/incompatible']);
     return false;
   }

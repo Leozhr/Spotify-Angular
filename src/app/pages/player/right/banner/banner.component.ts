@@ -16,10 +16,9 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetSinger();
-    console.log(this.test.type());
   }
 
   async GetSinger() {
-    this.singer = await this.spotifyService.SpotifyTopSinger(5);
+    this.singer = await this.spotifyService.SpotifyTopSinger(10);
   }
 }

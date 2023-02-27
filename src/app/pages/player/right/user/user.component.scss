@@ -1,8 +1,11 @@
+@import "variables.scss";
+
 :host {
   .user {
     padding: 30px 0px 40px;
     align-items: center;
     gap: 16px;
+    position: relative;
   }
 
   .loggout {
@@ -20,5 +23,17 @@
     font-style: normal;
     font-weight: 600;
     font-size: 1.25rem;
+
+    &::after {
+      content: "";
+      width: 80%;
+      height: 2px;
+      background-color: $cor-b25;
+      display: block;
+      position: absolute;
+      top: 110px;
+      left: 10%;
+      opacity: 0.4;
+    }
   }
 }

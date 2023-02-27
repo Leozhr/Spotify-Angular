@@ -33,7 +33,37 @@
     height: 90px;
     position: fixed;
     bottom: 0px;
-    background: rgba(18, 18, 18, 0.64);
-    backdrop-filter: blur(40px);
+    background: black;
+    transition: 0.3s;
+
+    &.modal {
+      transition: 0.3s;
+      height: 3px;
+    }
+  }
+
+  .timer {
+    position: absolute;
+    bottom: 12px;
+    right: 0px;
+    margin-top: 12px;
+    text-align: end;
+    padding: 0px 30px;
+
+    img {
+      rotate: 0deg;
+      zoom: 1.2;
+      padding: 10px;
+      background-color: black;
+      border-radius: 100%;
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+      transition: 0.3s;
+    }
+
+    &.modal img {
+      transition: 0.3s;
+      rotate: 180deg;
+    }
   }
 }

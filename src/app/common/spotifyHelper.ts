@@ -3,11 +3,9 @@ import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 import { User } from '../interfaces/user';
 import { addMilliseconds, format } from 'date-fns';
-import { newMusic, NewPlaylist } from './factories';
+import { newMusic, NewPlaylist, NewSinger } from './factories';
 
-export function SpotifyProfile(
-  user: SpotifyApi.CurrentUsersProfileResponse
-): User {
+export function SpotifyProfile(user: SpotifyApi.CurrentUsersProfileResponse): User {
   return {
     id: user.id,
     name: user.display_name,
@@ -16,9 +14,7 @@ export function SpotifyProfile(
   };
 }
 
-export function GetSpotifyPlaylist(
-  playlist: SpotifyApi.PlaylistObjectSimplified
-): Playlist {
+export function GetSpotifyPlaylist(playlist: SpotifyApi.PlaylistObjectSimplified): Playlist {
   return {
     id: playlist.id,
     name: playlist.name,
@@ -26,15 +22,23 @@ export function GetSpotifyPlaylist(
   };
 }
 
-export function GetSpotifyPlaylistOnly(
-  playlist: SpotifyApi.SinglePlaylistResponse
-): Playlist {
+export function GetSpotifyPlaylistOnly(playlist: SpotifyApi.SinglePlaylistResponse): Playlist {
   if (!playlist) return NewPlaylist();
 
   return {
     id: playlist.id,
     name: playlist.name,
     image: playlist.images.shift().url,
+    musics: [],
+  };
+}
+
+export function GetSpotifyArtistOnly(artist: SpotifyApi.SingleArtistResponse): Singer {
+  if (!artist) return NewSinger();
+  return {
+    id: artist.id,
+    name: artist.name,
+    imageUrl: artist.images.sort((a, b) => a.width - b.width).pop().url,
     musics: [],
   };
 }
@@ -49,9 +53,7 @@ export function GetSpotifySinger(singer: SpotifyApi.ArtistObjectFull): Singer {
   };
 }
 
-export function GetSpotifyTrack(
-  spotifyTrack: SpotifyApi.TrackObjectFull
-): Music {
+export function GetSpotifyTrack(spotifyTrack: SpotifyApi.TrackObjectFull): Music {
   if (!spotifyTrack) return newMusic();
 
   const convertTime = (ms: number) => {

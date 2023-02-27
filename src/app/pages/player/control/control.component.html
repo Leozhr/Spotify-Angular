@@ -14,14 +14,14 @@
 
   </div>
 
+
   <div class="menu-player flex flex-center">
     <img src="assets/images/icons/next.svg" alt="" class="preview" (click)="ReturnMusic()">
-    <img src="assets/images/icons/player.svg" alt="" class="play" (click)="MusicControl()">
+    <div [ngSwitch]="status">
+      <img src="assets/images/icons/player.svg" alt="" class="play" (click)="MusicControl()" *ngSwitchCase="false">
+      <img src="assets/images/icons/start.svg" alt="" class="play" (click)="MusicControl()" *ngSwitchCase="true">
+    </div>
     <img src="assets/images/icons/next.svg" alt="" class="next" (click)="NextMusic()">
-  </div>
-
-  <div class="menu-timer">
-    <span>00:00/{{ music.time }}</span>
   </div>
 
 </div>

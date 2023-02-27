@@ -2,7 +2,7 @@
 
 :host {
 
-  h3 {
+   h3 {
     font-weight: 600;
     font-size: 1.25rem;
     letter-spacing: 0.1em;
@@ -11,7 +11,7 @@
     padding: 0px 30px 10px;
   }
 
-  nav {
+  .playlist {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
@@ -23,14 +23,25 @@
       cursor: pointer;
 
       &:hover {
-        background: linear-gradient(to right, $cor-b25, transparent);
+        background: linear-gradient(to right, $cor-b100, transparent);
+        opacity: 1;
       }
     }
 
-    h2 {
-      font-size: 1rem;
-      font-weight: 500;
-      max-width: 270px;
+    .active {
+      display: none;
+    }
+
+    .title {
+      width: 230px;
+    }
+
+    .title h2 {
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 1.4rem;
+      font-weight: 400;
     }
 
     img {

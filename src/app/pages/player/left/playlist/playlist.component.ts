@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Playlist } from 'src/app/interfaces/playlist';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
@@ -10,7 +11,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class PlaylistComponent implements OnInit {
   playlists: Playlist[] = [];
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor(private spotifyService: SpotifyService, private router: Router) {}
 
   ngOnInit(): void {
     this.GetPlaylist();
@@ -19,5 +20,9 @@ export class PlaylistComponent implements OnInit {
   async GetPlaylist() {
     this.playlists = await this.spotifyService.SpotifyPlaylist();
     console.log(this.playlists);
+  }
+
+  GetPlaylistPage(playlistId: string) {
+    this.router.navigate(['/player/music/playlist/', playlistId]);
   }
 }

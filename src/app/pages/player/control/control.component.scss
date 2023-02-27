@@ -33,6 +33,12 @@
 
     & img {
       cursor: pointer;
+      opacity: 0.9;
+
+      &:active {
+      opacity: 1.2;
+
+      }
     }
 
     & .preview {
@@ -40,18 +46,19 @@
     }
   }
 
-  &-timer {
-    margin-top: 12px;
-    text-align: end;
-    padding: 0px 30px;
-  }
-
   .bar {
     content: "";
     width: 100%;
     position: absolute;
     top: 0;
-    height: 2px;
-    background-color: #FFFFFF25;
+    height: 3px;
+    background-color: $cor-principal;
+    animation: frames 5s infinite;
+  }
+
+  @keyframes frames {
+    0% {opacity: 0.2;}
+    50% {opacity: 1;}
+    100% {opacity: 0.2;}
   }
 }

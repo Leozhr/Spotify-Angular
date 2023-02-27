@@ -1,4 +1,8 @@
 <section class="left"><app-left></app-left></section>
 <section class="center"><router-outlet></router-outlet></section>
 <section class="right"><app-right></app-right></section>
-<section class="control"><app-control></app-control></section>
+<section class="control" [ngClass]="{'modal': condition == true}"><app-control></app-control></section>
+
+<div class="timer" (click)="modal()" [ngClass]="{'modal': condition == true}">
+  <img src="assets/images/icons/down.svg" alt="">
+</div>

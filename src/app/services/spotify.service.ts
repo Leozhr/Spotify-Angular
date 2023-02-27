@@ -3,6 +3,7 @@ import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { User } from '../interfaces/user';
 import {
+  GetSpotifyArtistOnly,
   GetSpotifyPlaylist,
   GetSpotifyPlaylistOnly,
   GetSpotifySinger,
@@ -45,7 +46,7 @@ export class SpotifyService {
     this.user = SpotifyProfile(userInfo);
   }
 
-  async SpotifyPlaylist(offset = 0, limit = 5): Promise<Playlist[]> {
+  async SpotifyPlaylist(offset = 0, limit = 6): Promise<Playlist[]> {
     const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, {
       offset,
       limit,

@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 :host {
-
+  .navegation {
   nav {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,8 @@
       cursor: pointer;
 
       &:hover {
-        background: linear-gradient(to right, $cor-b25, transparent);
+        background: linear-gradient(to right, $cor-b100, transparent);
+        opacity: 1;
       }
 
       &.active {
@@ -44,4 +45,5 @@
       margin-left: 30px;
     }
   }
+}
 }

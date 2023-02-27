@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { newMusic } from 'src/app/common/factories';
 import { Music } from 'src/app/interfaces/musics';
 import { Playlist } from 'src/app/interfaces/playlist';
+import { Singer } from 'src/app/interfaces/singer';
 import { PlayerService } from 'src/app/services/player.service';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
@@ -14,6 +15,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class MusicComponent implements OnInit, OnDestroy {
   playlist: Playlist;
+  artist: Singer;
   musics: Music[];
   musicPlayer: Music = newMusic();
   subs: Subscription[] = [];
@@ -54,14 +56,12 @@ export class MusicComponent implements OnInit, OnDestroy {
 
   async GetPageParams(type: string, id: string) {
     if (type == 'playlist') await this.GetPlaylistType(id);
-    else await this.GetArtistType(id);
+    else null;
   }
 
   async GetPlaylistType(playlistId: string) {
     this.playlist = await this.spotifyService.SpotifyPlaylistOnly(playlistId);
   }
-
-  async GetArtistType(artist: string) {}
 
   ngOnDestroy(): void {
     this.subs.forEach((sub) => sub.unsubscribe());

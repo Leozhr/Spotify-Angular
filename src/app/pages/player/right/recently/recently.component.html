@@ -1,15 +1,12 @@
-<h3>Tocadas Recentemente</h3>
+<h3>Artistas</h3>
 
-<div class="recently">
-  <div class="flex">
-    <picture>
-      <img src="" alt="">
-    </picture>
+<div class="recently flex" *ngFor="let artist of singer">
+  <picture>
+    <img src="{{ artist.imageUrl }}" alt="">
+  </picture>
 
-    <div class="recently-info">
-      <p>AAAAAA</p>
-      <span>ED SHERAN</span>
-    </div>
+  <div class="recently-info">
+    <p>{{ artist.name }}</p>
+    <span>{{ artist.followers }} Seguidores</span>
   </div>
-
 </div>
