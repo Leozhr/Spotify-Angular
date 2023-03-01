@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { newMusic } from 'src/app/common/factories';
 import { Music } from 'src/app/interfaces/musics';
@@ -16,7 +17,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
   auth: boolean = false;
   condition: boolean = false;
 
-  constructor(private router: Router, private playerService: PlayerService) {}
+  constructor(private router: Router, private playerService: PlayerService, private toastrService: ToastrService) {}
 
   ngOnInit(): void {
     this.GetMusicPlayed();
@@ -37,5 +38,11 @@ export class PlayerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.forEach((x) => x.unsubscribe);
+  }
+
+  sync() {
+    this.toastrService.error('Ops.. Não foi possivel sincronizar', 'ERROR', {
+      timeOut: 3000,
+    });
   }
 }

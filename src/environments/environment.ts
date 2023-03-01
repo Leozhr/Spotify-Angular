@@ -3,7 +3,7 @@ export const environment = {
 };
 
 export const SpotifyConfiguration = {
-  clientId: '1e253287f0814dfb90028392b8e7849c',
+  clientId: '6737b0bb36ed4198bd15ba16dce94d41',
   authEndpoint: 'https://accounts.spotify.com/authorize',
   redirectUrl: 'https://spotify-kappa-ebon.vercel.app/login',
   scopes: [

@@ -56,7 +56,8 @@ export class MusicComponent implements OnInit, OnDestroy {
 
   async GetPageParams(type: string, id: string) {
     if (type == 'playlist') await this.GetPlaylistType(id);
-    else null;
+    else {
+    }
   }
 
   async GetPlaylistType(playlistId: string) {

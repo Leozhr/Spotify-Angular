@@ -79,7 +79,7 @@
 
   &-list {
     flex-direction: column;
-    height: 80%;
+    height: 90%;
   }
 
   & img {
@@ -107,5 +107,24 @@
 
   &.valid {
     display: none;
+  }
+
+  & button {
+    margin-top: 60px;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    background-color: $cor-principal;
+    color: $cor-w;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    font-weight: 600;
+    transition: .3s;
+
+    &:hover {
+      transition: .3s;
+      background-color: $cor-w ;
+      color: $cor-principal;
+    }
   }
 }

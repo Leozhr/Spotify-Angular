@@ -13,26 +13,144 @@
     flex-direction: column;
     justify-content: space-around;
 
-    img {
-      width: 40%;
+    & picture img {
+      width: 60%;
+      margin-bottom: 80px;
+    }
+
+    &-info {
+      background-color: $cor-b100;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    span {
+      font-size: 1rem;
+      color: $cor-principal;
+      margin-left: 2px;
+      font-weight: 400;
+      cursor: pointer;
     }
 
     button {
       font-size: 1.5rem;
       padding: 10px 15px;
-      border-radius: 500px;
       background-color: $cor-principal;
       color: $cor-w;
-      border: 5px solid $cor-b75;
-      box-shadow: 0px 0px 1px 2px $cor-principal;
+      border: none;
       cursor: pointer;
-      animation: event 4s infinite;
+      width: max-content;
+      font-weight: 600;
+      transition: .3s;
+
+      &:hover {
+        transition: .3s;
+        background-color: $cor-w ;
+        color: $cor-principal;
+      }
     }
 
     @keyframes event {
       0% { box-shadow: 0px 0px 1px 2px $cor-principal; }
       50% { box-shadow: 0px 0px 1px 4px $cor-principal; }
       100% { box-shadow: 0px 0px 1px 2px $cor-principal; }
+    }
+
+    & form {
+      flex-direction: column;
+      gap: 80px;
+
+      & .input {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #ffffff80;
+      }
+
+      & input {
+        font-size: 1.5rem;
+        border: 0;
+        border-radius: 2px;
+        height: 50px;
+        width: 500px;
+        background: rgb(10, 10, 10);
+        border: 2px solid $cor-b100;
+        color: $cor-w;
+        opacity: 1;
+        padding: 0px 5px;
+        transition: .3s;
+
+        &:focus {
+          outline: none;
+          border: 2px solid $cor-principal;
+          transition: .3s;
+        }
+      }
+
+      & div {
+        gap: 5px;
+      }
+    }
+  }
+
+  .tutorial {
+    position: absolute;
+    background-color: #00000080;
+    width: 100%;
+    height: 100vh;
+
+    &-main {
+      background-color: $cor-b75;
+      width: 50%;
+      height: 90%;
+      font-size: 1.1rem;
+      padding: 100px 50px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgb(46, 46, 46);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(77, 77, 77);
+      }
+    }
+
+    & li img {
+      max-width: 50%;
+      border-radius: 15px;
+      margin: 40px 0px;
+    }
+
+    & ul {
+      gap: 10px;
+    }
+
+    & .link{
+      color: $cor-principal;
+    }
+
+    & span {
+      user-select: text;
+      cursor: text;
+      color: $cor-principal;
+      font-size: 1.15rem;
+    }
+
+    & button {
+      position: absolute;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      top: 50px;
+      right: 20%;
+      background-color: rgb(214, 44, 44);
     }
   }
 }

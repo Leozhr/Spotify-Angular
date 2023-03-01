@@ -18,31 +18,33 @@ export class PlayerService {
   async SpotifyTimeout() {
     clearTimeout(this.timer);
     this.timer = setInterval(async () => {
-      this.GetMusicPlayer();
-      this.GetPlaybackMusic();
-    }, 500);
+      try {
+        this.GetMusicPlayer();
+      } catch (error) {
+        clearInterval(this.timer);
+      }
+    }, 2500);
   }
 
   async GetMusicPlayer() {
     const music = await this.spotifyService.SpotifyState();
     this.GetMusicValid(music);
-    await this.GetMusicPlayer();
   }
 
   async SetNextMusic() {
-    await this.spotifyService.SpotifyNext();
+    try {
+      await this.spotifyService.SpotifyNext();
+    } catch (error) {}
   }
 
   async SetReturnMusic() {
-    await this.spotifyService.SpotifyReturn();
+    try {
+      await this.spotifyService.SpotifyReturn();
+    } catch (error) {}
   }
 
   async SetPauseMusic() {
     await this.spotifyService.SpotifyPause();
-  }
-
-  async GetPlaybackMusic() {
-    await this.spotifyService.SpotifyPlayback();
   }
 
   async SetStartMusic() {

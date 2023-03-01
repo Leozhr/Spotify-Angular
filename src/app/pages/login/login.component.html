@@ -1,4 +1,49 @@
 <div class="login flex flex-center">
-  <img src="assets/images/logo.svg" alt="Logo Spotify">
-  <button (click)="Redirect()">Abrir meu Spotify</button>
+  <div class="login-info">
+    <picture class="flex flex-center">
+      <img src="assets/images/logo.svg" alt="Logo Spotify">
+    </picture>
+    <form action="" class="flex" [formGroup]="form" (submit)="Redirect()">
+      <div class="input flex">
+        <div class="flex flex-cln">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" formControlName="username">
+        </div>
+        <div class="flex flex-cln">
+          <label for="username">Token*</label>
+          <input type="text" name="username" id="username" formControlName="token">
+          <span (click)="modal()">Como obter meu Token?</span>
+        </div>
+      </div>
+      <div class="flex flex-center">
+        <button type="submit">Abrir meu Spotify</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="tutorial flex flex-center" *ngIf="hub == true">
+    <div class="tutorial-main">
+      <ul class="flex flex-cln">
+        <li>Acesse o Spotify Developer Dashboard em <a class="link"
+            href="https://developer.spotify.com/dashboard/">https://developer.spotify.com/dashboard/</a></li>
+        <li>Faça login com sua conta do Spotify (A conta precisa ser Premium)</li>
+        <li class="flex flex-center"><img src="assets/images/step01.png" alt=""></li>
+        <li>Crie um novo aplicativo clicando no botão "MyNewApp" (Criar um aplicativo).</li>
+        <li>Dê um nome ao seu aplicativo e insira uma descrição. Isso é opcional, mas pode ajudá-lo a se lembrar do
+          objetivo do aplicativo.</li>
+        <li class="flex flex-center"><img src="assets/images/step02.png" alt=""></li>
+        <li>Pronto seu token foi gerado, mas antes de inserir o codigo do TOKEN no site você vai precisar do token de
+          acesso, para isso clique em "Edit
+          Settings" (Editar configurações) no canto superior direito da página do aplicativo.</li>
+        <li class="flex flex-center"><img src="assets/images/step03.png" alt=""></li>
+        <li>Na seção "Redirect URIs" (URIs de redirecionamento), adicione essa Uri:
+          <span>https://spotify-kappa-ebon.vercel.app/login</span> e clique em salvar
+        </li>
+        <li class="flex flex-center"><img src="assets/images/step04.png" alt=""></li>
+        <li>Agora Pronto :). Depois de configurar você pode colocar o TOKEN para fazer o login e curtir suas musicas
+          favoritas.</li>
+        <button (click)="modal()">X</button>
+      </ul>
+    </div>
+  </div>
 </div>

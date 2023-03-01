@@ -8,12 +8,10 @@ import {
   GetSpotifySinger,
   GetSpotifyTrack,
   SpotifyProfile,
-  SpotifyStatus,
 } from '../common/spotifyHelper';
 import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 import { Music } from '../interfaces/musics';
-import { Status } from '../interfaces/status';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +19,6 @@ import { Status } from '../interfaces/status';
 export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   user: User;
-  status: Status;
 
   constructor() {
     this.spotifyApi = new Spotify();
@@ -46,11 +43,6 @@ export class SpotifyService {
   async SpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();
     this.user = SpotifyProfile(userInfo);
-  }
-
-  async SpotifyPlayback() {
-    const statusInfo = await this.spotifyApi.getMyCurrentPlaybackState();
-    this.status = SpotifyStatus(statusInfo);
   }
 
   async SpotifyPlaylist(offset = 0, limit = 6): Promise<Playlist[]> {
@@ -78,7 +70,7 @@ export class SpotifyService {
     return playlistOnly;
   }
 
-  async SpotifyTopSinger(limit = 10): Promise<Singer[]> {
+  async SpotifyTopSinger(limit = 6): Promise<Singer[]> {
     const singer = await this.spotifyApi.getMyTopArtists({ limit });
     return singer.items.map(GetSpotifySinger);
   }
@@ -102,15 +94,11 @@ export class SpotifyService {
   }
 
   async SpotifyPause() {
-    try {
-      await this.spotifyApi.pause();
-    } catch (error) {}
+    if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == true) await this.spotifyApi.pause();
   }
 
   async SpotifyStart() {
-    try {
-      await this.spotifyApi.play();
-    } catch (error) {}
+    if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == false) await this.spotifyApi.play();
   }
 
   async SpotifyState(): Promise<Music> {
