@@ -9,14 +9,12 @@ const routes: Routes = [
 
   {
     path: 'login',
-    loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
+    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginModule),
     canLoad: [DeviceGuard],
   },
   {
     path: 'player',
-    loadChildren: () =>
-      import('./pages/player/player.module').then((m) => m.PlayerModule),
+    loadChildren: () => import('./pages/player/player.module').then((m) => m.PlayerModule),
     canLoad: [AuthenticatedGuard],
   },
   {

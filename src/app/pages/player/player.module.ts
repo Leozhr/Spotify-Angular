@@ -7,6 +7,7 @@ import { RightModule } from './right/right.module';
 import { HomeModule } from './center/home/home.module';
 import { ControlModule } from './control/control.module';
 import { MusicModule } from './center/music/music.module';
+import { ThousandSeparatorPipe } from 'src/app/common/format.pipe';
 
 @NgModule({
   declarations: [PlayerComponent],

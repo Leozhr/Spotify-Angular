@@ -19,7 +19,6 @@ export class PlaylistComponent implements OnInit {
 
   async GetPlaylist() {
     this.playlists = await this.spotifyService.SpotifyPlaylist();
-    console.log(this.playlists);
   }
 
   GetPlaylistPage(playlistId: string) {

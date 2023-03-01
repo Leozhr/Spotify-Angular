@@ -6,6 +6,10 @@
   height: max-content;
   position: relative;
 
+  &.test {
+    background-color: aqua;
+  }
+
   &-info {
     margin-top: 12px;
     align-items: center;

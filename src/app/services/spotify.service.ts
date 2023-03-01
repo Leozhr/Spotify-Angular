@@ -3,16 +3,17 @@ import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { User } from '../interfaces/user';
 import {
-  GetSpotifyArtistOnly,
   GetSpotifyPlaylist,
   GetSpotifyPlaylistOnly,
   GetSpotifySinger,
   GetSpotifyTrack,
   SpotifyProfile,
+  SpotifyStatus,
 } from '../common/spotifyHelper';
 import { Playlist } from '../interfaces/playlist';
 import { Singer } from '../interfaces/singer';
 import { Music } from '../interfaces/musics';
+import { Status } from '../interfaces/status';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ import { Music } from '../interfaces/musics';
 export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   user: User;
+  status: Status;
 
   constructor() {
     this.spotifyApi = new Spotify();
@@ -44,6 +46,11 @@ export class SpotifyService {
   async SpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();
     this.user = SpotifyProfile(userInfo);
+  }
+
+  async SpotifyPlayback() {
+    const statusInfo = await this.spotifyApi.getMyCurrentPlaybackState();
+    this.status = SpotifyStatus(statusInfo);
   }
 
   async SpotifyPlaylist(offset = 0, limit = 6): Promise<Playlist[]> {
@@ -95,11 +102,15 @@ export class SpotifyService {
   }
 
   async SpotifyPause() {
-    await this.spotifyApi.pause();
+    try {
+      await this.spotifyApi.pause();
+    } catch (error) {}
   }
 
   async SpotifyStart() {
-    await this.spotifyApi.play();
+    try {
+      await this.spotifyApi.play();
+    } catch (error) {}
   }
 
   async SpotifyState(): Promise<Music> {

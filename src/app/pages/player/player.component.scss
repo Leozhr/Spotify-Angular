@@ -1,6 +1,6 @@
 @import 'variables.scss';
 
-:host {
+.player {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
 
@@ -65,5 +65,47 @@
       transition: 0.3s;
       rotate: 180deg;
     }
+  }
+}
+
+.auth {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background-color: $cor-b100;
+  z-index: 100;
+
+  &-list {
+    flex-direction: column;
+    height: 80%;
+  }
+
+  & img {
+    max-width: 400px;
+    animation: loop 3s infinite;
+  }
+
+  @keyframes loop {
+    0%{opacity: 1;}
+    50%{opacity: 0.5;}
+    100%{opacity: 1;}
+  }
+
+  & h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+
+  & li {
+    margin-bottom: 10px;
+    opacity: 0.8;
+    list-style: square;
+    font-size: 1.15rem;
+  }
+
+  &.valid {
+    display: none;
   }
 }

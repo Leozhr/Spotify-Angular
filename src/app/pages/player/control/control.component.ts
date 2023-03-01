@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { newMusic } from 'src/app/common/factories';
 import { Music } from 'src/app/interfaces/musics';
+import { Status } from 'src/app/interfaces/status';
 import { PlayerService } from 'src/app/services/player.service';
+import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
   selector: 'app-control',
@@ -13,8 +15,10 @@ export class ControlComponent implements OnInit, OnDestroy {
   music: Music = newMusic();
   subs: Subscription[] = [];
   status: boolean = false;
+  condition: Status = null;
+  offset: boolean = true;
 
-  constructor(private playerService: PlayerService) {}
+  constructor(private playerService: PlayerService, private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
     this.GetMusicPlayed();
@@ -38,10 +42,11 @@ export class ControlComponent implements OnInit, OnDestroy {
 
   MusicControl() {
     this.status = !this.status;
+    this.condition = this.spotifyService.status;
 
-    if (this.status) {
+    if (this.status && this.condition.playing) {
       this.playerService.SetPauseMusic();
-    } else {
+    } else if (!this.status && !this.condition.playing) {
       this.playerService.SetStartMusic();
     }
   }

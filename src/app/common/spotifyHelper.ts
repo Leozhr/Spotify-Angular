@@ -4,6 +4,7 @@ import { Singer } from '../interfaces/singer';
 import { User } from '../interfaces/user';
 import { addMilliseconds, format } from 'date-fns';
 import { newMusic, NewPlaylist, NewSinger } from './factories';
+import { Status } from '../interfaces/status';
 
 export function SpotifyProfile(user: SpotifyApi.CurrentUsersProfileResponse): User {
   return {
@@ -11,6 +12,19 @@ export function SpotifyProfile(user: SpotifyApi.CurrentUsersProfileResponse): Us
     name: user.display_name,
     imgProfile: user.images.pop().url,
     type: user.type,
+  };
+}
+
+export function SpotifyStatus(status: SpotifyApi.CurrentPlaybackResponse): Status {
+  const convertTime = (ms: number) => {
+    const date = addMilliseconds(new Date(0), ms);
+    return format(date, 'mm:ss');
+  };
+
+  return {
+    playing: status.is_playing,
+    progress: convertTime(status.progress_ms),
+    progressMs: status.progress_ms,
   };
 }
 

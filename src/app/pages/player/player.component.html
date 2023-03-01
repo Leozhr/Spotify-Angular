@@ -1,8 +1,25 @@
-<section class="left"><app-left></app-left></section>
-<section class="center"><router-outlet></router-outlet></section>
-<section class="right"><app-right></app-right></section>
-<section class="control" [ngClass]="{'modal': condition == true}"><app-control></app-control></section>
+<div *ngIf="music.title != ''" class="player">
+  <section class="left"><app-left></app-left></section>
+  <section class="center"><router-outlet></router-outlet></section>
+  <section class="right"><app-right></app-right></section>
+  <section class="control" [ngClass]="{'modal': condition == true}"><app-control></app-control></section>
 
-<div class="timer" (click)="modal()" [ngClass]="{'modal': condition == true}">
-  <img src="assets/images/icons/down.svg" alt="">
+  <div class="timer" (click)="modal()" [ngClass]="{'modal': condition == true}">
+    <img src="assets/images/icons/down.svg" alt="">
+  </div>
+</div>
+
+<div class="auth" [ngClass]="{'valid': music.title != ''}">
+  <div class="flex flex-center auth-list">
+    <img src="assets/images/icons/auth.svg" alt="">
+    <h1>Usuario não Sincronizado</h1>
+    <ul>
+      <li>Abra o aplicativo do Spotify em seu desktop. Se você ainda não o tiver instalado, baixe-o do site oficial do
+        Spotify e instale-o em seu computador.</li>
+      <li>Faça login na sua conta do Spotify que utilizou para autenticação.</li>
+      <li>Navegue até a música que você deseja ouvir.</li>
+      <li>Clique no botão "Play" para começar a reproduzir a música selecionada.</li>
+      <li>Aguarde alguns segundos para o spotify sincronizar os dados.</li>
+    </ul>
+  </div>
 </div>
