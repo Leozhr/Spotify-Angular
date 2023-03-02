@@ -1,4 +1,9 @@
 :host {
+  padding: 0px 10px;
+
+  @media screen and (max-width: 1400px){
+    padding: 0px 10px;
+  }
 
   picture {
     padding: 40px 0px;
@@ -12,5 +17,4 @@
     flex-direction: column;
     gap: 60px;
   }
-
 }
