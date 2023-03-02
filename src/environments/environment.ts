@@ -5,7 +5,7 @@ export const environment = {
 export const SpotifyConfiguration = {
   clientId: '6737b0bb36ed4198bd15ba16dce94d41',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirectUrl: 'https://spotify-kappa-ebon.vercel.app/login',
+  redirectUrl: 'https://spotify-leozhr.vercel.app/login',
   scopes: [
     'user-read-currently-playing', // musica tocando agora.
     'user-read-recently-played', // ler musicas tocadas recentemente
