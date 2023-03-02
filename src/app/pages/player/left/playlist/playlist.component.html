@@ -5,7 +5,7 @@
   <ul>
     <li class="flex" *ngFor="let playlist of playlists" (click)="GetPlaylistPage(playlist.id)">
       <img src="assets/images/nav/playlist.svg" alt="">
-      <div class="title" *ngIf="playlist.name != ''">
+      <div class="title">
         <h2>{{ playlist.name | titlecase }}</h2>
       </div>
       <div class="title" *ngIf="playlist.name == ''">
