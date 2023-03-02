@@ -86,19 +86,27 @@ export class SpotifyService {
   }
 
   async SpotifyNext() {
-    await this.spotifyApi.skipToNext();
+    try {
+      await this.spotifyApi.skipToNext();
+    } catch {}
   }
 
   async SpotifyReturn() {
-    await this.spotifyApi.skipToPrevious();
+    try {
+      await this.spotifyApi.skipToPrevious();
+    } catch {}
   }
 
   async SpotifyPause() {
-    if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == true) await this.spotifyApi.pause();
+    try {
+      if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == true) await this.spotifyApi.pause();
+    } catch {}
   }
 
   async SpotifyStart() {
-    if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == false) await this.spotifyApi.play();
+    try {
+      if ((await this.spotifyApi.getMyCurrentPlaybackState()).is_playing == false) await this.spotifyApi.play();
+    } catch {}
   }
 
   async SpotifyState(): Promise<Music> {
