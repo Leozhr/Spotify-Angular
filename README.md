@@ -51,15 +51,25 @@ Além do player de música, você também encontrará as músicas mais curtidas 
 
 • Você precisa do Spotify Desktop instalado em seu computador, para que você consiga sincroniza-lo e ter todas as funcionalidades liberadas"
 
-• Deixe as musicas tocando apenas no Spotify do Desktop, caso esteja tocando as musicas pelo celular, a API não vai conseguir obter os dados corretamente causando conflitos"
+• Deixe as musicas tocando apenas no Spotify do Desktop, caso esteja tocando as musicas pelo celular, a API não vai conseguir obter os dados corretamente causando conflitos".
 
 #
+
+### `Mobile (ERROR)`
+
+ <img width="400px" src="https://user-images.githubusercontent.com/117487925/222315096-582cba46-2fc4-4ad1-b466-6cd4bb9fc819.png" />
+
+• O projeto ainda não esta disponivel para dispositivos moveis, pois a estrutura usada é diferente, mas em breve estará disponivel, então use um computador com o Spotify Desktop instalado em sua maquina para que o projeto funcione corretamente.
+
+#
+
+<br/>
 
 ### `INVALID_CLIENT (ERROR)`
 
  <img width="400px" src="https://user-images.githubusercontent.com/117487925/222300819-3a346dd5-003c-4749-b709-10b1cc8e8779.png" />
 
-• Esse erro aparece caso o Token inserido seja incorreto, volte para tela de login e siga o tutorial e tente novamente, a configuração precisa estar 100% correta para que a API consiga obter seus dados atravez do Token de Acesso, caso mesmo assim não funcione, entre em contato comigo.
+• Esse erro aparece caso o Token inserido seja incorreto, volte para tela de login, siga o tutorial e tente novamente, a configuração precisa estar 100% correta para que a API consiga obter seus dados atravez do Token de Acesso, caso mesmo assim não funcione, entre em contato comigo.
 
 #
 
@@ -125,7 +135,7 @@ Ao seguir essa estrutura de pastas, tornei o projeto mais organizado e fácil de
 
  <img width="500px" src="https://user-images.githubusercontent.com/117487925/222304683-5c8ee356-43e7-48d2-b411-e4d997c42168.png" />
 
-• Com essa estrutura consigo pegas as autorizações dos usuarios, lembrando que esses dados não são divulgados e eu não tenho acesso, pois o usuario vai usar o Token pessoal obtido no proprio site oficial do Spotify, tendo em mente isso, as permissões necessarias são:
+• Com essa estrutura consigo pegar as autorizações dos usuarios, lembrando que esses dados não são divulgados e eu não tenho acesso, pois o usuario vai usar o Token pessoal obtido no proprio site oficial do Spotify, tendo em mente isso, as permissões necessarias são:
 
 <br/>
 
